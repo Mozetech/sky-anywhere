@@ -1,0 +1,37 @@
+# Everything below is fetched or built on your machine by ./setup.sh (or the video tool).
+# It is third-party material or derived from it, so it must never be committed.
+/vendor/
+/assets/
+/.venv/
+/.build.log
+/out/
+/node_modules/
+
+# No image, audio or video file belongs in this repository: the game's own art (the sky's clouds,
+# haze and wind) is drawn by code, and its music and sound effects are synthesized. These patterns
+# stop a built or fetched file being added by mistake.
+*.png
+*.gif
+*.jpg
+*.jpeg
+*.webp
+*.bmp
+*.4bpp
+*.8bpp
+*.gbapal
+*.pal
+*.bin
+*.lz
+*.wav
+*.mp3
+*.ogg
+*.mid
+*.midi
+*.mp4
+*.webm
+*.gba
+*.sav
+
+__pycache__/
+.DS_Store
+/package-lock.json

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Sky Anywhere</title>
+<link rel="icon" href="assets/ui/favicon.png">
+<style>
+  :root { color-scheme: light; }
+  html, body { margin: 0; height: 100%; background: #1c2230; overflow: hidden; font-family: ui-monospace, Menlo, monospace; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #stage { position: relative; }
+  canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; background: #000; }
+  #hint { color: #8a94a8; font-size: 12px; letter-spacing: .04em; margin-top: 14px; text-align: center; line-height: 1.7; user-select: none; }
+  #hint b { color: #e6ebf5; font-weight: 600; }
+  #pad { display: none; position: fixed; inset: auto 0 0 0; padding: 12px 18px 22px; justify-content: space-between; align-items: flex-end; pointer-events: none; }
+  #pad > div { pointer-events: auto; }
+  .dpad { position: relative; width: 132px; height: 132px; }
+  .dpad button, .ab button { -webkit-tap-highlight-color: transparent; touch-action: none; user-select: none; border: 0; background: #2a3244; color: #cfd6e4; font: 700 14px ui-monospace, monospace; border-radius: 10px; }
+  .dpad button { position: absolute; width: 44px; height: 44px; }
+  .dpad .u { left: 44px; top: 0 } .dpad .d { left: 44px; top: 88px } .dpad .l { left: 0; top: 44px } .dpad .r { left: 88px; top: 44px }
+  .ab { display: flex; gap: 12px; align-items: flex-end; }
+  .ab button { width: 56px; height: 56px; border-radius: 50%; }
+  .ab .start { width: 64px; height: 30px; border-radius: 8px; font-size: 11px; }
+  @media (pointer: coarse) { #pad { display: flex; } #hint { display: none; } }
+</style>
+</head>
+<body>
+  <div id="stage"><canvas id="game" width="240" height="160"></canvas></div>
+  <div id="hint"><b>Arrows / WASD</b> move &nbsp;·&nbsp; <b>Enter</b> menu &nbsp;·&nbsp; <b>Z</b> confirm / land &nbsp;·&nbsp; <b>X</b> back, hold to go faster<br>Open the menu and pick <b>FLY</b>. The sky is a place now: wild POKéMON hide in it like tall grass.</div>
+  <div id="pad">
+    <div class="dpad">
+      <button class="u" data-k="up">▲</button><button class="l" data-k="left">◀</button>
+      <button class="r" data-k="right">▶</button><button class="d" data-k="down">▼</button>
+    </div>
+    <div class="ab">
+      <button class="start" data-k="start">MENU</button>
+      <button data-k="b">B</button>
+      <button data-k="a">A</button>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
